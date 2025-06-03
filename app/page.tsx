@@ -1,12 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, ChevronRight, ChevronLeft, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, ChevronRight, ChevronLeft, ExternalLink, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Portfolio() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeTab, setActiveTab] = useState('about');
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState('');
+
   const projectsData = [
     {
       id: 1,
@@ -25,9 +27,9 @@ export default function Portfolio() {
       description: "A system to manage primary school results, assign grades, download reports, rank students, and analyze performance.",
       technologies: ["Django", "Python", "React", "JavaScript"],
       screenshots: [
-        "/api/placeholder/800/500",
-        "/api/placeholder/800/500",
-        "/api/placeholder/800/500"
+        "/images/Home.jpg",
+        "/images/Exam.jpg",
+        "/images/Result.jpg"
       ]
     }
   ];
@@ -56,6 +58,16 @@ export default function Portfolio() {
     );
   };
 
+  const openModal = (image: string) => {
+    setModalImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage('');
+  };
+
   const tabVariants = {
     hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0 },
@@ -64,12 +76,36 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-x-hidden">
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="relative">
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-all"
+                aria-label="Close Modal"
+              >
+                <X size={24} />
+              </button>
+              <img src={modalImage} alt="Full-size view" className="max-w-full max-h-full rounded-lg" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-12 px-6 md:px-16 lg:px-24 text-center space-y-4">
         <img 
-          src="/api/placeholder/200/200" 
+          src="/images/James.jpg" 
           alt="James Nderema" 
-          className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg object-cover"
+          className="w-60 h-60 rounded-full border-4 border-blue-500 shadow-lg object-cover cursor-pointer"
+          onClick={() => openModal('/images/James.jpg')}
         />
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
           James Nderema
@@ -160,7 +196,7 @@ export default function Portfolio() {
                     <ChevronRight size={18} />
                   </button>
                   <a 
-                    href="/cv/James-Nderema-CV.pdf" 
+                    href="/CV/James-Nderema-CV.pdf" 
                     download="James-Nderema-CV.pdf"
                     className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-md font-medium transition-all flex items-center space-x-2"
                   >
@@ -306,15 +342,16 @@ export default function Portfolio() {
               {projectsData.map((project) => (
                 <div key={project.id} className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="relative">
-                    <div className="relative h-80 overflow-hidden">
+                    <div className="relative h-[500px] overflow-hidden bg-gray-900 flex items-center justify-center">
                       {project.screenshots.map((screenshot, i) => (
                         <img 
                           key={i}
                           src={screenshot} 
                           alt={`${project.name} Screenshot ${i+1}`}
-                          className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
+                          className={`absolute inset-0 m-auto max-w-full max-h-full object-contain transition-opacity duration-500 cursor-pointer ${
                             i === currentSlide ? 'opacity-100' : 'opacity-0'
                           }`}
+                          onClick={() => openModal(screenshot)}
                         />
                       ))}
                     </div>
