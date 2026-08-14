@@ -83,7 +83,7 @@ export default function Home() {
                   View my work <ArrowRight size={16} />
                 </Link>
                 <a
-                  href="/CV/James-Nderema-CV.pdf"
+                  href="/CV/James_Nderema_CV.pdf"
                   download
                   className="btn-ghost"
                 >

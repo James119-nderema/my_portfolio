@@ -12,6 +12,9 @@ export type Project = {
   downloadUrl?: string;
   downloadLabel?: string;
   highlights?: string[];
+  liveUrl2?: string;
+  liveLabel2?: string;
+
   status?: 'Live' | 'In Development' | 'Beta';
 };
 
@@ -25,11 +28,16 @@ export const projects: Project[] = [
     category: 'SaaS',
     technologies: ['Next.js', 'Django REST', 'PostgreSQL', 'Tailwind CSS', 'TypeScript'],
     screenshots: [
-      '/images/Screenshot 2025-08-09 185316.jpg',
-      '/images/Screenshot 2025-08-09 193305.jpg',
+      '/images/Kazam_screenshot_00003.png',
+      '/images/Kazam_screenshot_00001.png',
+      '/images/Kazam_screenshot_00002.png',
+      '/images/Screenshot_2026-08-14_16_26_44.png',
     ],
     liveUrl: 'https://sokobiz.co.ke',
     liveLabel: 'sokobiz.co.ke',
+
+    liveUrl2: 'https://lilian.sokobiz.co.ke',
+    liveLabel2: 'See tenantn shop (lilian.sokobiz.co.ke)',
     highlights: [
       'Multi-tenant architecture serving live customers',
       'Real-time sales and inventory reporting',
@@ -37,27 +45,7 @@ export const projects: Project[] = [
     ],
     status: 'Live',
   },
-  {
-    id: 'dukapro-pos',
-    name: 'DukaPro POS',
-    tagline: 'Cross-platform point of sale system',
-    description:
-      'A full-stack point of sale solution with a Django backend, Next.js admin dashboard, a PyQt6 desktop cashier app for offline-first billing, and a companion mobile app. Handles products, sales, receipts, payments (M-Pesa) and reports.',
-    category: 'SaaS',
-    technologies: ['Django REST', 'Next.js', 'PyQt6', 'React Native', 'PostgreSQL'],
-    screenshots: [
-      '/images/WhatsApp Image 2025-06-25 at 09.10.12_b08999e2.jpg',
-      '/images/WhatsApp Image 2025-06-25 at 09.10.24_9b4891bb.jpg',
-      '/images/WhatsApp Image 2025-06-30 at 15.16.57_731be8cf.jpg',
-    ],
-    highlights: [
-      'Offline-capable desktop cashier (PyQt6)',
-      'Central web dashboard & analytics',
-      'M-Pesa integration and receipt printing',
-      'Companion mobile app for on-the-go sales',
-    ],
-    status: 'Beta',
-  },
+
   {
     id: 'schoolmaster',
     name: 'SchoolMaster',
@@ -66,9 +54,20 @@ export const projects: Project[] = [
       'A hosted school management platform with subdomain-per-tenant onboarding. Manages student records, exams, grading, ranking, report cards, fees, staff and parent communication.',
     category: 'SaaS',
     technologies: ['Django', 'Next.js', 'PostgreSQL', 'Tailwind CSS'],
-    screenshots: ['/images/Home.jpg', '/images/Exam.jpg', '/images/Result.jpg'],
-    liveUrl: 'https://lilian.schoolmaster.co.ke',
-    liveLabel: 'lilian.schoolmaster.co.ke (tenant demo)',
+    screenshots: [
+      '/images/Kazam_screenshot_00004.png',
+      '/images/Kazam_screenshot_00005.png',
+      '/images/Kazam_screenshot_00006.png',
+      '/images/Kazam_screenshot_00007.png',
+      '/images/Kazam_screenshot_00008.png',
+      '/images/Kazam_screenshot_00009.png',
+      '/images/Kazam_screenshot_00010.png',
+      '/images/Kazam_screenshot_00011.png',
+      '/images/Kazam_screenshot_00012.png',
+      '/images/Kazam_screenshot_00013.png',
+    ],
+    liveUrl: 'https://test.schoolmaster.co.ke',
+    liveLabel: 'schoolmaster.co.ke (tenant demo)',
     highlights: [
       'Live onboarded tenant (Lilian)',
       'Automatic report card generation & ranking',
@@ -85,9 +84,11 @@ export const projects: Project[] = [
     category: 'Mobile',
     technologies: ['React Native', 'Expo', 'TypeScript', 'REST API'],
     screenshots: [
-      '/images/WhatsApp Image 2025-06-05 at 18.17.31_f4dda977.jpg',
-      '/images/WhatsApp Image 2025-06-05 at 18.17.39_928b2b20.jpg',
-      '/images/WhatsApp Image 2025-06-05 at 18.17.45_9695a3b3.jpg',
+      '/images/WhatsApp Image 2026-08-14 at 3.19.10 PM.jpeg',
+      '/images/WhatsApp Image 2026-08-14 at 3.19.11 PM (1).jpeg',
+      '/images/WhatsApp Image 2026-08-14 at 3.19.11 PM (2).jpeg',
+      '/images/WhatsApp Image 2026-08-14 at 3.19.11 PM.jpeg',
+      '/images/WhatsApp Image 2026-08-14 at 3.19.12 PM.jpeg'
     ],
     highlights: [
       'Barcode-friendly quick sale flow',
@@ -105,8 +106,11 @@ export const projects: Project[] = [
     category: 'Desktop',
     technologies: ['Python', 'PyQt6', 'SQLite', 'Qt Stylesheet'],
     screenshots: [
-      '/images/WhatsApp Image 2025-05-18 at 21.19.49_455668f9.jpg',
-      '/images/Image.jpg',
+      '/images/Screenshot_2026-08-14_15_59_39.png',
+      '/images/Screenshot_2026-08-14_15_43_56.png',
+      '/images/Screenshot_2026-08-14_15_43_32.png',
+      '/images/Screenshot_2026-08-14_15_43_20.png',
+      '/images/Screenshot_2026-08-14_15_43_08.png'
     ],
     highlights: [
       'Offline-first with local SQLite cache',
@@ -123,7 +127,7 @@ export const projects: Project[] = [
       'A Windows desktop application that generates conflict-free school timetables based on subjects, teachers and available slots. Ships as a signed installer.',
     category: 'Desktop',
     technologies: ['Python', 'PyQt', 'Algorithms', 'Windows Installer'],
-    screenshots: ['/images/timetable-icon.png'],
+    screenshots: ['/images/Screenshot_2026-08-14_15_39_50.png'],
     downloadUrl: '/downloads/SchoolTimetableGeneratorSetup.exe',
     downloadLabel: 'Download for Windows',
     highlights: [

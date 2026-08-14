@@ -10,7 +10,7 @@ const workExperience = [
   {
     role: 'Founder & Lead Developer',
     org: 'SokoBiz / SchoolMaster / DukaPro',
-    period: '2024 — Present',
+    period: '2024 - Present',
     location: 'Mombasa, Kenya',
     points: [
       'Designed and shipped SokoBiz — a multi-tenant business & inventory SaaS live at sokobiz.co.ke.',
@@ -22,7 +22,7 @@ const workExperience = [
   {
     role: 'Ajira Digital Trainer',
     org: 'Ajira Digital Program',
-    period: 'January 2025 — Present',
+    period: 'January 2025 - Present',
     location: 'Mombasa, Kenya',
     points: [
       'Trained cohorts on web development, freelancing and digital-work opportunities.',
